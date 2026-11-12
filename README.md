@@ -1,8 +1,11 @@
-# NeoSymbian Wi-Fi
+# NeoLink
 
-User-side Rust for the Pixel 3a XL's Wi-Fi (Qualcomm WCN3990 on SDM670), on the 2010 Symbian user side
-(`armv5te-none-eabi`, `no_std` + `alloc`). The plan, hardware facts and stages are in
-[docs/wifi.md](https://github.com/NeoSymbian/docs/blob/main/wifi.md).
+NeoSymbian's wireless connectivity: user-side Rust for the Pixel 3a XL's Qualcomm WCN3990 (SDM670), Wi-Fi now and
+Bluetooth later (the same combo chip), on the 2010 Symbian user side
+(`armv5te-none-eabi`, `no_std` + `alloc`). The Wi-Fi plan, hardware facts and stages are in
+[docs/wifi.md](https://github.com/NeoSymbian/docs/blob/main/wifi.md); Bluetooth is driver-support D6.
+
+(Not the dropped USB-SSH tool of the same name from the debug-access work: nothing of it is here.)
 
 | Crate | What |
 |---|---|
