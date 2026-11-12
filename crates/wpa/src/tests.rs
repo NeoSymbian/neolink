@@ -290,3 +290,21 @@ fn downgrade_and_garbage() {
         Err(Error::Unexpected)
     );
 }
+
+#[test]
+fn resent_msg3_reinstalls_nothing() {
+    // msg4 was lost, so the AP resends msg3 (a new replay counter): answer it, but install no key again (a reinstalled
+    // PTK would reset its packet numbers: the KRACK nonce reuse)
+    let mut ap = Ap::new(b"pw-pw-pw");
+    let mut s = supplicant(b"pw-pw-pw");
+    let a = s.on_eapol(&ap.msg1()).unwrap();
+    ap.take_msg2(sent(&a[0]));
+    assert_eq!(s.on_eapol(&ap.msg3(&RSN_IE.clone())).unwrap().len(), 4);
+    let again = s.on_eapol(&ap.msg3(&RSN_IE.clone())).unwrap();
+    assert_eq!(again.len(), 1);
+    let msg4 = sent(&again[0]);
+    assert_eq!(
+        mic(&ap.ptk.as_ref().unwrap().kck, msg4),
+        msg4[MIC..MIC + 16]
+    );
+}

@@ -315,6 +315,11 @@ impl Handshake {
             &[0; 32],
             &[],
         );
+        if self.authorized {
+            // a resent msg3 (our msg4 was lost): answer it, but never install the keys again (a reinstalled PTK
+            // restarts its packet numbers: the KRACK nonce reuse)
+            return Ok(vec![Action::Send(msg4)]);
+        }
         self.authorized = true;
         Ok(vec![
             Action::Send(msg4),
