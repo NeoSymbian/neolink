@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: Apache-2.0
+[package]
+name = "neonet"
+description = "NEONET.EXE: the IP stack over Wi-Fi (net::Stack on the kernel's WlanLink frames) and the NeoNet server"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+crate-type = ["staticlib"]
+test = false
+
+[dependencies]
+e32.workspace = true
+net.workspace = true
+smoltcp = { version = "0.14", default-features = false }
