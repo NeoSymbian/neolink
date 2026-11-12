@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# NeoSymbian Wi-Fi (docs wifi.md): the user-side protocol crates, no_std + alloc, unit-tested on the Mac.
+[workspace]
+members = ["crates/wlfw"]
+resolver = "2"

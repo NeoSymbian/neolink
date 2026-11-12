@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: Apache-2.0
+[package]
+name = "wlfw"
+description = "The WCN3990 Wi-Fi firmware's QMI control service (WLFW, service 69) for NeoSymbian"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[dependencies]
