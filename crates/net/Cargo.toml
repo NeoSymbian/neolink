@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: Apache-2.0
+[package]
+name = "net"
+description = "NeoNet: the IP stack over Wi-Fi (smoltcp: DHCP, DNS, TCP) and its IPC protocol and client (docs wifi.md W5)"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[features]
+# The client side of the NeoNet IPC API (e32 sessions): for SYSSTART and apps, built for the phone.
+client = ["dep:e32"]
+
+[dependencies]
+# shortcut: IPv4 only (no proto-ipv6), add it when an IPv6-only network matters
+smoltcp = { version = "0.14", default-features = false, features = [
+    "alloc", "medium-ethernet", "proto-ipv4", "proto-dhcpv4", "proto-dns", "socket-tcp", "socket-dhcpv4",
+    "socket-dns", "auto-icmp-echo-reply",
+] }
+# smoltcp's heapless assumes armv5te-none-eabi has atomic load/store; this nightly gives it none. Its atomics go
+# through portable-atomic, backed on the phone by e32's critical-section (a kernel mutex), as Slint's do in neoui.
+heapless = { version = "0.9", default-features = false, features = ["portable-atomic-critical-section"] }
+# NeoSymbian/e32-rs, the same revision as neoui and telephony (one e32 in SYSSTART)
+e32 = { git = "https://github.com/NeoSymbian/e32-rs", rev = "e97e2ebcb242f5365d1b3f9d520646603e1e9056", optional = true }
