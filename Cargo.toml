@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
 # NeoLink: Wi-Fi (docs wifi.md) and later Bluetooth for NeoSymbian; the user-side protocol crates, no_std + alloc, unit-tested on the Mac.
 [workspace]
-members = ["crates/wlfw"]
+members = ["crates/wlfw", "crates/wpa"]
 resolver = "2"
