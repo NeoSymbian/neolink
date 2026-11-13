@@ -14,7 +14,7 @@ client = ["dep:e32"]
 [dependencies]
 # shortcut: IPv4 only (no proto-ipv6), add it when an IPv6-only network matters
 smoltcp = { version = "0.14", default-features = false, features = [
-    "alloc", "medium-ethernet", "proto-ipv4", "proto-dhcpv4", "proto-dns", "socket-tcp", "socket-dhcpv4",
+    "alloc", "medium-ethernet", "proto-ipv4", "proto-dhcpv4", "proto-dns", "socket-tcp", "socket-udp", "socket-dhcpv4",
     "socket-dns", "auto-icmp-echo-reply",
 ] }
 # smoltcp's heapless assumes armv5te-none-eabi has atomic load/store; this nightly gives it none. Its atomics go
