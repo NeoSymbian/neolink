@@ -1,4 +1,7 @@
-# NeoLink
+# NeoLink (archived)
+
+**Moved:** this repository was merged, with its history, into [NeoSymbian/neohw](https://github.com/NeoSymbian/neohw) on 2026-11-18 (`crates/wlfw`, `crates/wpa`, `crates/net`, `symbian/neonet`). Work continues there; see [docs/hardware.md](https://github.com/NeoSymbian/docs/blob/main/hardware.md).
+
 
 NeoSymbian's wireless connectivity: user-side Rust for the Pixel 3a XL's Qualcomm WCN3990 (SDM670), Wi-Fi now and
 Bluetooth later (the same combo chip), on the 2010 Symbian user side
